@@ -37,6 +37,10 @@ class Customer(models.Model):
     phone = models.CharField(max_length=11)
     birth_date = models.DateField(null=True)
     members = models.CharField(max_length=1, choices=MEMBERSHIP_CHIOCES, default=MEMBERSHIP_BRONZE)
+
+    class Meta:
+        db_table = 'store_customers'
+        indexes = [models.Index(fields=['last_name', 'first_name'])]
     
 class Order(models.Model):
     PAYMENT_STATE = [
