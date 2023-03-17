@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     # Apps created by me
     'projects.apps.ProjectsConfig',
     'store.apps.StoreConfig',
-    'tags.apps.TagsConfig'
+    'tags.apps.TagsConfig',
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -51,9 +52,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'devsearch.urls'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    
+]
 
 TEMPLATES = [
     {
